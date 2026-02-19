@@ -1,0 +1,77 @@
+.row {
+  color: #fff;
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 0.75rem 0 1.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.posters::-webkit-scrollbar {
+  height: 6px;
+}
+
+.posters::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.posters::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+}
+
+.poster {
+  max-height: 110px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+  width: 100%;
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.poster:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.posterLarge {
+  max-height: 220px;
+}
+
+.posterLarge:hover {
+  transform: scale(1.12);
+}
+
+.trailer {
+  margin: 0 1.5rem 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .row {
+    margin-left: 1rem;
+  }
+
+  .poster {
+    max-height: 90px;
+  }
+
+  .posterLarge {
+    max-height: 180px;
+  }
+}
+

@@ -1,0 +1,121 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.35s ease-in-out,
+    box-shadow 0.35s ease-in-out,
+    backdrop-filter 0.35s ease-in-out;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.navBlack {
+  background-color: #111;
+}
+
+.navContent {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.logo {
+  position: relative;
+  height: 28px;
+  object-fit: contain;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatarWrapper {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+}
+
+.avatar,
+.avatarPlaceholder {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarPlaceholder {
+  background-color: #e50914;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.avatarWrapper:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.5);
+}
+
+.authButton {
+  border: none;
+  padding: 0.35rem 0.9rem;
+  border-radius: 4px;
+  background-color: #e50914;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease-in-out,
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+}
+
+.authButton:hover {
+  background-color: #f40612;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 600px) {
+  .navContent {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    height: 22px;
+  }
+
+  .avatar,
+  .avatarPlaceholder {
+    height: 28px;
+    width: 28px;
+  }
+
+  .authButton {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+  }
+}
+

@@ -1,0 +1,11 @@
+# Root node_modules
+node_modules/
+
+# Nested ones
+netflix-fullstack/client/node_modules/
+netflix-fullstack/server/node_modules/
+
+# Environment files
+.env
+netflix-fullstack/client/.env
+netflix-fullstack/server/.env

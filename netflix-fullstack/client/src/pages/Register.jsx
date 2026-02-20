@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 const Register = () => {
-    const [name, setName] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
@@ -12,15 +12,22 @@ const Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const res = await api.post('/auth/register', { name, email, password, phone });
+            const res = await api.post('/auth/register', {
+                username,
+                email,
+                password,
+                phone
+            });
+
             if (res.data.success) {
                 alert('Registration successful! Please login.');
                 navigate('/');
             } else {
-                alert('Registration failed');
+                alert(res.data.message || 'Registration failed');
             }
         } catch (err) {
-            alert('Registration error');
+            console.error("REGISTER ERROR:", err.response?.data || err.message);
+            alert(err.response?.data?.message || 'Registration error');
         }
     };
 
@@ -36,8 +43,8 @@ const Register = () => {
                                 className="modern-input"
                                 type="text"
                                 placeholder="Full Name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
                                 required
                             />
                             <input
@@ -64,11 +71,15 @@ const Register = () => {
                                 onChange={(e) => setPhone(e.target.value)}
                             />
                         </div>
-                        <button className="auth-btn" type="submit">Sign Up</button>
+                        <button className="auth-btn" type="submit">
+                            Sign Up
+                        </button>
                     </form>
                     <div className="auth-footer">
                         Already have an account?
-                        <span className="auth-link" onClick={() => navigate('/')}>Sign in.</span>
+                        <span className="auth-link" onClick={() => navigate('/')}>
+                            Sign in.
+                        </span>
                     </div>
                 </div>
             </div>
